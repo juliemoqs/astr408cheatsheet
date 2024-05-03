@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Julie's Cheat Sheet for Statistical Methods in P&A</title>
+    </head>
+    <body style="background-color:lavender">
+    <center>
+        <header>
+            <div class="topnav">
+                <a class="active" href="index.html">Home</a> |
+                <a href="probability.html">Probability</a> |
+                <a href="nonparametrics.html">Nonparametrics</a> |
+                <a href="regression.html">Regression</a> |
+                <a href="datasmoothing.html">Data Smoothing</a> |
+                <a href="multivariate.html">Multivariate Analysis</a> |
+                <a href="timeseries.html">Time Series Analysis</a> |
+                <a href="clustering.html">Clustering</a> |
+                <a href="truncated.html">Censored and Truncated Data</a> |
+                <a href="spatial.html">Spatial Point Processes</a>
+            </div>
+
+        </header>
+        <h1>Clustering</h1>
+        <h2>When to Use</h2>
+        <p>when wanting to sort data into groups and/or identify characteristics of the different groups</p>
+        <br>
+
+        <h2>Key Points</h2>
+        <p><b>Supervised:</b> clustering where there is initial knowledge about the clusters, typically form a training set</p>
+        <p><b>Unsupervised:</b> clustering that is done straight on the data whhere there is no initial defined clusters</p>
+        <p><b>Centroid:</b> average or center point within a cluster</p>
+        <p><b>Soft Clustering:</b> data point may belong to multiple clusters with associated probabilities</p>
+        <p><b>Hard Clustering:</b> data point belongs to a single cluster</p>
+        <br>
+
+        <h2>Techniques</h2>
+        <h3>Dendrogram:</h3>
+        <p>shows the hierarchical relationship between data points</p>
+        <p><b>Defining Distance:</b></p>
+        <p>Single Linkage: smallest distance between two points in different clusters is used</p>
+        <p>Average Linkage: average distance between all the points is used</p>
+        <p>Complete Linkage: smallest maximum distance between two points in different clusters is used</p>
+        <img src="Cat-breed-clusters-Hierarchical-cluster-analysis-grouped-cat-breeds-into-four-clusters.png" height="354" width="550">
+        <p>Dendrogram for Cat Breeds</p>
+        <br>
+
+        <h3>K-Means:</h3>
+        <p>uses centroids to sort data into a predetermined k number of groups</p>
+        <p>assign points to clusters based on distance from k seed points and repeat until convergence</p>
+        <br>
+        
+        <h3>DBSCAN: Density-Based Spatial Clustering of Applications with Noise </h3>
+        <p>everyone's favorite</p>
+        <p>removes background noise: not all points have to be assigned to a cluster</p>
+        <p>2 parameters: vector distance &epsilon; and number of data points &mu;</p>
+        <p><b>Core Point:</b> data points that meet the criteria</p>
+        <p>Each core point is assigned a cluster</p>
+        <p>core points and non-core points within &epsilon; of the cluster are added to the cluster</p>
+        <p>all core points will be assigned to a group</p>
+        <br>
+
+        <h3>K-nn:</h3>
+        <p>assign points to already known clusters</p>
+        <p>use k nearest neighbor</p>
+        <p>the cluster with the most nearest neighbors is the cluster the point is assigned to</p>
+        <p>use misclassifation graphs to asses how well the classifcation is doing: want most data on the diagonal</p>
+        <br>
+
+        <h3>Gaussian Mixture Model:</h3>
+        <p>gives the probability that a point is in a cluster</p>
+        <p>a Gaussian is fit over each cluster</p>
+        <p>an estimate of k and cluster locations is giving</p>
+        <br>
+
+        <h3>LDA: Linear Discriminant Analysis</h3>
+        <p>tries to maximize separability of data</p>
+        <p>uses x and y data to find a new axes that separates the data best</p>
+        <br>
+
+        <img src="clustering meme.jpeg">
+        <br>
+    
+    </center>
+    </body>
+</html>

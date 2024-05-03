@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Julie's Cheat Sheet for Statistical Methods in P&A</title>
+    </head>
+    <body style="background-color:lavender">
+    <center>
+        <header>
+            <div class="topnav">
+                <a class="active" href="index.html">Home</a> |
+                <a href="probability.html">Probability</a> |
+                <a href="nonparametrics.html">Nonparametrics</a> |
+                <a href="regression.html">Regression</a> |
+                <a href="datasmoothing.html">Data Smoothing</a> |
+                <a href="multivariate.html">Multivariate Analysis</a> |
+                <a href="timeseries.html">Time Series Analysis</a> |
+                <a href="clustering.html">Clustering</a> |
+                <a href="truncated.html">Censored and Truncated Data</a> |
+                <a href="spatial.html">Spatial Point Processes</a>
+            </div>
+        </header>
+        <h1>Multivariate Analysis</h1>
+        <h2>When to Use</h2>
+        <h3>Principal Component Analysis</h3>
+        <p>when wanting to reduce dimensions of multidimensional data and transform into</p>
+        <p>fewer dimensional data that accounts for the most variation by using linear combinations </p>
+        <h3>Independent Component Analysis</h3>
+        <p>when wanting to linearly mixed singles (that are statistically independent) from muliple sources</p>
+        <br>
+
+        <h2>Key Points</h2>
+        <p><b>Ill-conditioning:</b> not enough variables to constrain</p>
+        <p>However, want more points than variables</p>
+        <p><b>Minkowski Metric:</b> weighted distance d<sub>ij</sub> = (&sum; |X<sub>ik</sub> - X<sub>jk</sub>|<sup>m</sup>)<sup>1/m</sup></p>
+        <p>m=1 gives the Manhattan Distance</p>
+        <p>m=2 gives the Euclidean Distance</p>
+        <p>m&RightArrow;&infin; gives Chebyshev (maximum) Distance</p>
+        <p><b>Whiten:</b> removing correlations in the data</p>
+        <br>
+
+        <h2>Techniques</h2>
+        <h3>Principal Component Analysis:</h3>
+        <p>finds linear combination that best explains the variance of the data</p>
+        <p>1st principal component is the linear combination that has the highest variance</p>
+        <p><b>a<sub>k</sub></b>: PCA coefficient for the kth component are calculated using Lagrangian multipliers</p>
+        <p>and is the kth eigenvalue of the covariance matrix</p>
+        <p><b>3 important cautions:</b></p>
+        <p>1. the components derived from the original variables will be different than the ones from standardized versions of the og variables</p>
+        <p>2. there is a lack of math for evaluating the significance of a component; need to visually examine elbow of scree plot</p>
+        <p>3. later components may be dominated by noise</p>
+        <p><b>Scree Plot:</b> shows contribution to the sample variance by each component;</p>
+        <p>location of elbow tells where components are no longer "significant"</p>
+        <img src="screeplot.png" width="392" height="255">
+        <p><b>Biplot:</b> scatterplot that uses points and vectors to represent structure; axes are a pair of components</p>
+        <br>
+
+        <h3>Factor Analysis:</h3>
+        <p>regression model that finds linear relationships among observed variables that are indirectly caused by latent variables</p>
+        <p>also seeks to reduce dimensionality but unlike PCA finds factors that explain correlations</p>
+        <br>
+
+        <h3>Canonical Analysis:</h3>
+        <p>generalization of PCA that treats variables in groups</p>
+        <p>seeks correlations between linear combinations of one group and linear combinations of another</p>
+        <br>
+
+        <h3>Independent Component Analysis:</h3>
+        <p>can only be used on linearly mixed sources</p>
+        <p>perfect Gaussian sources cannot be separated</p>
+        <p>uses matrices to unmix the data</p>
+        <p>need to pre-process the data by whitening it</p>
+        <p>whitened data needs to be rotated to avoid gaussianity of the axis projections</p>
+        <br>
+
+        <img src="pcacatcritic.png">
+        <br>
+    </center>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Julie's Cheat Sheet for Statistical Methods in P&A</title>
+    </head>
+    <body style="background-color:lavender">
+    <center>
+        <header>
+            <div class="topnav">
+                <a class="active" href="index.html">Home</a> |
+                <a href="probability.html">Probability</a> |
+                <a href="nonparametrics.html">Nonparametrics</a> |
+                <a href="regression.html">Regression</a> |
+                <a href="datasmoothing.html">Data Smoothing</a> |
+                <a href="multivariate.html">Multivariate Analysis</a> |
+                <a href="timeseries.html">Time Series Analysis</a> |
+                <a href="clustering.html">Clustering</a> |
+                <a href="truncated.html">Censored and Truncated Data</a> |
+                <a href="spatial.html">Spatial Point Processes</a>
+            </div>
+
+        </header>
+        <h1>Data Smoothing</h1>
+        <h2>When to Use</h2>
+        <p>when wanting to reconstruct pdf from a data set and/or get rid of outliers</p>
+        <br>
+
+        <h2>Key Points</h2>
+        <p><b>Bandwidth:</b> a parameter that determines the width of the neighborhood used to estimate local behavior</p>
+        <p><b>Bin Width:</b> size of subintervals used for histograms</p>
+        <p><b>Kernel Function:</b> funtion that determines shape of smoothing estimator</p>
+        <br>
+
+        <h2>Techniques</h2>
+        <h3>Histograms:</h3>
+        <p>good for visualizing data</p>
+        <p>cannot do quantitative analysis on histograms</p>
+        <p>need to be extra careful with over/undersmoothing when dealing with histograms</p>
+        <br>
+
+        <h3>Kernel Density Estimators:</h3>
+        <p>estimates the PDF</p>
+        <p>makes discrete data into a continuous function</p>
+        <p><b>Kernel Functions:</b></p> 
+        <p>Gaussian: good for univariate data</p> 
+        <p>Rectangular: good for data with sharp edges and/or gaps</p>
+        <p>Epanechnikov: good for when there are more outliers (more robust than Gaussian)</p>
+        <p><b>Picking Bandwidth:</b> goal is to minimize MISE</p>
+        <br>
+
+        <h3>Adaptive Smoothing:</h3>
+        <p>good for unevenly spaced data</p>
+        <p>changes the bandwidth depending on the densty of data points in a region</p>
+        <p>three parameters: bandwidth factor &lambda;, sensitivity parameter &alpha;, geometric mean of pilot estimator g</p>
+        <br>
+
+        <h3>Kth Nearest Neighbor:</h3>
+        <p>used to estimate density at each data point</p>
+        <p>basically a circle around the point that expands until it contains k neighbors</p>
+        <br>
+
+        <h3>Nadaraya-Watson Estimator: </h3>
+        <p>used to predict x from y</p>
+        <p>use nearby values to predict a value</p>
+        <p>uses a kernel function to weight points; the closer the point, the higher the weight</p>
+        <br>
+    
+        <h3>Spline Smoothing:</h3>
+        <p>used to predict response variable based on a predictor variable</p>
+        <p>piece-wise function that pieces polynomials together</p>
+        <p><b>Cubic Splines:</b> uses 3rd degree polynomials and will be continuous</p>
+        <p>BIG cost to overfitting; checking residuals can help with this</p>
+        <p>smoothing parameter &lambda;: at 0 it spline interpolates and at infinity the spline looks like least squares</p>
+        <br>
+
+        <img src="data_smoothing_cat.jpeg" width="400" height="275">
+        <br>
+    </center>
+    </body>
+</html>
