@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Julie's Cheat Sheet for Statistical Methods in P&A</title>
+    </head>
+    <body style="background-color:lavender">
+    <center>
+        <header>
+            <div class="topnav">
+                <a class="active" href="index.html">Home</a> |
+                <a href="probability.html">Probability</a> |
+                <a href="nonparametrics.html">Nonparametrics</a> |
+                <a href="regression.html">Regression</a> |
+                <a href="datasmoothing.html">Data Smoothing</a> |
+                <a href="multivariate.html">Multivariate Analysis</a> |
+                <a href="timeseries.html">Time Series Analysis</a> |
+                <a href="clustering.html">Clustering</a> |
+                <a href="truncated.html">Censored and Truncated Data</a> |
+                <a href="spatial.html">Spatial Point Processes</a>
+            </div>
+        </header>
+        <h1>Spatial Point Processes</h1>
+        <h2>When to Use</h2>
+        <p>when wanting to model and/or interpolate data that occur in space</p>
+        <br>
+
+        <h2>Key Points</h2>
+        <p><b>Stationary:</b> data that has properties that are invariant under translation</p>
+        <p><b>Istropic:</b> data that has properties that are invariant under rotation </p>
+        <p><b>Complete Spatial Randomness:</b> points have equal probability of appearing anywhere; smells like Poisson</p>
+        <p><b>Nearest-Neighbor Distribution:</b> probability event is between r and dr </p>
+            <p> = (probability of O counts in &pi;r<sup>2</sup>) x (probability of 1 count in 2&pi;dr)</p>
+
+        <h2>Techniques</h2>
+        <h3>Kriging:</h3>
+        <p>used for interpolation on data that is in few places and is not uniformly distributed</p>
+        <p><b>Semi-Variogram:</b> describes spatial connectiveness of data; gives the weighting for kriging (can be negative)</p>
+        <p>weights based on correlation: &gamma;(h) = &sigma;<sup>2</sup> - cov(z(x),z(x+h))</p>
+        <img src="variogram.png" width="350" height="250">
+        <p>sill: total variance of the data</p>
+        <p>nugget: small-scale variability</p>
+        <p>range: distance where pairs of points are no longer spatially correlated</p>
+        <p><b>Simple Kriging:</b> know constant mean over sample and known variogram</p>
+        <p><b>Ordinary Kriging:</b> unkown constant mean but known variogram</p>
+        <img src="kriging.png">
+        <br>
+        <br>
+
+        <h3>Delaunay Triangulation:</h3>
+        <p>joins all neighboring triplets of points with triangles</p>
+        <p><b>Minimal Spanning Tree:</b> network of line segments that connects all points having the smallest total length</p>
+        <p><b>Circumcircles:</b> circle that entirely encloses its associated triangle that has data point as center;</p>
+        <p>skinny triangles produce larger circumcircles than robust triangles of a similar size</p>
+        <br>
+
+        <h3>Dirichlet/Voronoi Tessellation:</h3>
+        <p>based on line bisectors perpendicular to the line segments from Delaunay Triangulation</p>
+        <p>paritions space into polygons around seed points (data)</p>
+        <p>turns a heterogeneous map into a smoothed image</p>
+        <br>
+        <img src="tess_triang.png" width="420" height="310">
+        <br>
+        <br>
+        <br>
+
+        <img src="tessellation.jpeg" width="360" height="294">
+        <img src="voronoi cat.png" width="360" height="294">
+        <br>
+    </center>
+    </body>
+</html>

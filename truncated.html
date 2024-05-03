@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Julie's Cheat Sheet for Statistical Methods in P&A</title>
+    </head>
+    <body style="background-color:lavender">
+    <center>
+        <header>
+            <div class="topnav">
+                <a class="active" href="index.html">Home</a> |
+                <a href="probability.html">Probability</a> |
+                <a href="nonparametrics.html">Nonparametrics</a> |
+                <a href="regression.html">Regression</a> |
+                <a href="datasmoothing.html">Data Smoothing</a> |
+                <a href="multivariate.html">Multivariate Analysis</a> |
+                <a href="timeseries.html">Time Series Analysis</a> |
+                <a href="clustering.html">Clustering</a> |
+                <a href="truncated.html">Censored and Truncated Data</a> |
+                <a href="spatial.html">Spatial Point Processes</a>
+            </div>
+        </header>
+        <h1>Censored and Truncated Data</h1>
+        <h2>When to Use</h2>
+        <p>when wanting to account for bias in missing data and to form better conclusions based on the missing data</p>
+        <br>
+        
+        <h2>Key Points</h2>
+        <p><b>Truncated:</b> occurs when the data are not observed beyond a certain threshold or limit </p>
+        <p><b>Censored:</b> occurs when the exact time of an event of interest is not known for some observations</p>
+        <p><b>Upper-Limit (left-censored):</b> maximum value to which an object may have but the value is too low to be detected</p>
+        <p><b>Survival Function:</b> S(x) = P(X>x) = 1 - F(x) where F(x) is CDF</p>
+        <p>probability that an object has value above specific value x</p>
+        <p><b>Hazard Function:</b> h(x) = f(x)/S(x) = -d/dx(lnS(x)) where f(x) is PDF;</p>
+        <p>what is the probability that a person will die at a certain age</p>
+        <p><b>Kaplan Meier Curve:</b> used to graphically represent the survival rate at different times;</p>
+        <br>
+
+        <h2>Techniques</h2>
+        <h3>Cox Regression:</h3>
+        <p>proportional hazard</p>
+        <p>used to determine the effect of different variables on survival time</p>
+        <p>coefficients near 0 indicate no effect </p>
+        <p>'' greater than 0 indicate increased risk</p>
+        <p>'' lower than 0 indicate decreased risk</p>
+        <br>
+
+        <h3>Gehan's Test:</h3>
+        <p>used to see if 2 survival curves are significantly different</p>
+        <p>similar to the Wilcoxon test (see Nonparametrics)</p>
+        <p>U<sub>ij</sub> = +1 if x<sub>i</sub><sup>1</sup> < x<sub>j</sub><sup>2</sup> (where x<sub>i</sub><sup>1</sup> may be censored)</p>
+        <p>U<sub>ij</sub> = -1 if x<sub>i</sub><sup>1</sup> > x<sub>j</sub><sup>2</sup> (where x<sub>j</sub><sup>2</sup> may be censored) </p>
+        <p>U<sub>ij</sub> = 0 if x<sub>i</sub><sup>1</sup> = x<sub>j</sub><sup>2</sup> (or if relationship is ill determined)</p>
+        <p>W<sub>Gehan</sub> = &#8721;U<sub>ij</sub></p>
+        <br>
+        
+        <h3>Logrank Test:</h3>
+        <p>used to see if 2 survival curves are significantly different </p>
+        <p>H<sub>o</sub>: survival functions are identical</p>
+        <p>H<sub>1</sub>: survival functions are different</p>
+        <p>for each event times calculate the expected value for the group</p>
+        <p>use the covariance to calculate the test statistic</p>
+        <br>
+        
+        <h3>Kaplan-Meier Estimator:</h3>
+        <p>used for getting the survival curve of <b>censored</b> data<</p>
+        <p>the effective censoring needs to be random</p>
+        <br>
+
+        <h3>Lynden-Bell-Woodroofe Estimator:</h3>
+        <p>used for getting the survival curve of <b>truncated</b> data</p>
+        <p> S(x) = P(X &#8804; x| X &#8804; u<sub>min</sub>) S(u<sub>min</sub>)</p>
+        <p>can only get survival curve of a range where u<sub>i</sub> is the sensitivity limit</p>
+        <br>
+
+        <img src="censored.webp">
+        <br>
+    </center>
+    </body>
+</html>

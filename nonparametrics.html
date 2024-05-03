@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Julie's Cheat Sheet for Statistical Methods in P&A</title>
+    </head>
+    <body style="background-color:lavender">
+    <center>
+        <header>
+            <div class="topnav">
+                <a class="active" href="index.html">Home</a> |
+                <a href="probability.html">Probability</a> |
+                <a href="nonparametrics.html">Nonparametrics</a> |
+                <a href="regression.html">Regression</a> |
+                <a href="datasmoothing.html">Data Smoothing</a> |
+                <a href="multivariate.html">Multivariate Analysis</a> |
+                <a href="timeseries.html">Time Series Analysis</a> |
+                <a href="clustering.html">Clustering</a> |
+                <a href="truncated.html">Censored and Truncated Data</a> |
+                <a href="spatial.html">Spatial Point Processes</a>
+            </div>
+        </header>
+        <h1>Nonparametrics</h1>
+        <h2>When to Use</h2>
+        <p>when do not have knowledge about underlying distribution</p> 
+         <p>   
+            samples do not have to come from normal distribution
+        </p>
+        <br>
+        <h2>Key Points</h2>
+        <p><b>Robustness:</b> insensitive to slight deviations from model assumptions; medians are robust, better for outliers</p>
+        <p><b>Rank:</b> a number assigned to a datapoint according to its order in a sorted list; 
+            use if there are classification variables and error bars</p>
+        <p><b>Breakdown Point:</b> a measure of robustness; the minimal fraction of contamination before a test
+        no longer works</p>
+        <p><b>Concordant:</b> object who is higher on one variable is also higher on the other variable</p>
+        <p><b>Discordant:</b> object who is higher on one variable is lower on the other variable</p>
+        <br>
+        <h2>Tests</h2>
+        <h3>Sign Test:</h3> 
+        <p>assigns data points as + or - depending on if it is above or below the expected value respectively</p>
+        <p>then see if it is significant that there are more + or more -;
+        data must be randomly selected</p>
+        <p>Does the median of the variables have median m<sub>o</sub>?</p>
+        <p>H<sub>o</sub>: m = m<sub>o</sub></p>
+        <p>H<sub>1</sub>: m &#8800; m<sub>o</sub></p>
+        <br>
+        <h3>Wilcoxon Signed Ranks:</h3>
+        <p>use to see if two samples have different medians by testing 
+        if the matched-pair differences have a median other than 0</p>
+        <p>find the differences in the paired samples and rank them</p>
+        <p>sum the ranks of the positive and negative differences</p>
+        <p>use the smaller sum for the W statistic</p>
+        <p>H<sub>o</sub>: matched-pair differences with a median of 0</p>
+        <p>H<sub>1</sub>: matched-pair differences with a non-zero median</p>
+        <br>
+        <h3>Wilcoxon Rank Sum:</h3>
+        <p>use ranks of sample data from two independent populations to test if they have different medians</p>
+        <p>asign ranks to all of the data points</p>
+        <p>sum the ranks of each sample</p>
+        <p>z = (T - &mu;)/&sigma; where &mu; = n<sub>1</sub>(n<sub>1</sub>+n<sub>2</sub>+1)/2 and 
+            &sigma;<sup>2</sup> = n<sub>1</sub>n<sub>2</sub>(n<sub>1</sub>+n<sub>2</sub>+1)/12 </p>
+        <p>H<sub>o</sub>: samples come from populations with equal medians</p>
+        <p>H<sub>1</sub>: samples come from populations with different medians</p>
+        <br>
+
+        <h3>Kolmogorov-Smirnov:</h3>
+        <p>used to compare the shape of distributions between two samples or between one sample and a known sample</p>
+        <p>maximum vertical distance between the two functions is measured</p>
+        <p>H<sub>o</sub>: two samples are drawn from the same distribution</p>
+        <p>H<sub>1</sub>: two samples are drawn from different distributions</p>
+        <br>
+
+        <h3>Cramer-von-Mises Statistic:</h3>
+        <p>use to see if the cdf of the data and a model are different</p>
+        <p>describes global and local differences</p>
+        
+        <br>
+        <h3>Anderson-Darling Test</h3>
+        <p>used if able to assess differences in outliers well by weighting the CvM statistic</p>
+        <br>
+        <h3>Kendall-Tau's Correlation Test</h3>
+        <p>used to determine if there is a relationship between two variables using concordant and discordant pairing</p>
+        <p>count the number of concordant and discordant pairs</p>
+        <p>z<sup>2</sup> = 9 &tau;<sup>2</sup>(n(n-1))/2(2n+5) where &tau; = (C-D)/(C+D)</p>
+        <br>
+
+        <h3>Spearman-Rho Test</h3>
+        <p>used to determine if there is a relationship between two variables using the difference between ranks</p>
+        <p>give each object a ranking is each variable</p>
+        <p>find the difference between the ranks for each object</p>
+        <p>&rho; = 1 - 6&sum;diff<sup>2</sup>/n(n<sup>2</sup>-1)</p>
+        <p>t<sup>2</sup> = &rho;<sup>2</sup>(n-2)/(1-r<sup>2</sup>)</p>
+        <br>
+
+        <h3>Chi-Squared Test</h3>
+        <h4>Goodness-of-Fit Test</h4>
+        <p>used to compare categorical variables; examines whether collected data is significantly different than model</p>
+        <p>T<sup>2</sup> = n(ad-bc)<sup>2</sup>/(c<sub>1</sub>c<sub>2</sub>n<sub>1</sub>n<sub>2</sub>) + .25</p>
+        <p>H<sub>o</sub>: no difference between expected and observed ratios</p>
+        <h4>Independence</h4>
+        <p>used to test whether two or more caterogical variables are statistically significant</p>
+        <br>
+        <h3>Fisher's Exact Test</h3>
+        <p>variant of Chi-Squared test but for small sample sizes (less than 5 in each cell) </p>
+        <br>
+        <img src="correlationnotcausation_cat.jpeg">
+        <br>
+
+    </center>
+    </body>
+</html>

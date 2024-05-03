@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Julie's Cheat Sheet for Statistical Methods in P&A</title>
+    </head>
+    <body style="background-color:lavender">
+    <center>
+        <header>
+            <div class="topnav">
+                <a class="active" href="index.html">Home</a> |
+                <a href="probability.html">Probability</a> |
+                <a href="nonparametrics.html">Nonparametrics</a> |
+                <a href="regression.html">Regression</a> |
+                <a href="datasmoothing.html">Data Smoothing</a> |
+                <a href="multivariate.html">Multivariate Analysis</a> |
+                <a href="timeseries.html">Time Series Analysis</a> |
+                <a href="clustering.html">Clustering</a> |
+                <a href="truncated.html">Censored and Truncated Data</a> |
+                <a href="spatial.html">Spatial Point Processes</a>
+            </div>
+        </header>
+        <h1>Probability</h1>
+        <h2>When to Use</h2>
+        <p>when wanting to model uncertainty:</p> 
+        <p>while the outcome of an event may be uncertain, the proportion of</p>
+        <p>one of the outcomes in a large number of events is stable </p>
+        <br>
+        <h2>Key Points</h2>
+            <p>
+            <b>Outcome Space:</b> set of all outcomes &Omega; of an experiment</p>
+            <p><b>Event:</b> a subset of a sample space</p>
+            <br>
+            
+            <h3><b>Probability Axioms</b></h3>
+            <p><b>Axiom 1:</b></p> <p>0 &#8804; P(A) &#8804; 1, for all events A</p>
+            <p><b>Axiom 2:</b> </p> <p>P(&Omega;)=1</p>
+            <p><b>Axiom 3:</b></p> <p>For mutually exclusive events A<sub>1</sub>, A<sub>2</sub>,..., 
+                P(A<sub>1</sub> &#8746; A<sub>2</sub> &#8746; ...) = P(A<sub>1</sub>) + P(A<sub>2</sub>) + ...</p>
+            <br>
+            
+            <h3>Probability Distribution Function</h3>
+            <p>a function that explains the likelihood of values to appear</p>
+            <p>P(x): range of x for every &#8721; p(x<sub>i</sub>) = 1, goes from 0 to 1</p>
+            <br>
+            
+            <h3>Cumulative Distribution Function</h3>
+            <p>a function whose value is the probability that a random variable has a value less than or equal to the argument of the function</p>
+            <p>F(x) = &#8747; P(x') dx' with integration limits from -&#8734; to x, goes from 0 to 1</p>
+            <br>
+            
+            <h3>Expected Value</h3>
+            <p>mean that is weighted by probability</p>
+            <p>E[f(x)] = &#8721; f(x<sub>i</sub>) p(x<sub>i</sub>)</p>
+            <br>
+            
+            <h3>Discrete Distributions</h3>
+            <p><b>Uniform:</b> P(i) = i/n where there are n outcomes</p>
+            <p><b>Binomial:</b> the probability of x successes in n trials</p> 
+            <p>P(x,n,&theta;) = &theta;<sup>x</sup>
+            (1-&theta;)<sup>n-x</sup><sub>n</sub>C<sub>x</sub> where <sub>n</sub>C<sub>x</sub> = n!/[x!(n-x)!]</p>
+            <p><b>Poisson:</b> binomial distribution with limit that n goes to inifinity and &theta; goes to 0 for every
+            n&theta;=&lambda;</p>
+            <p>P(x,&lambda;) = &lambda;<sup>x</sup>e<sup>-&lambda;</sup>/x!</p>
+            <p>the mean is equal to the variance</p>
+            <br>
+            
+            <h3>Continuous Distributions</h3>
+            <p><b>Uniform:</b> P(x<sub>1</sub>&#60;x&#60;x<sub>2</sub>) = &#8747; P(x) dx with integration bounds of x<sub>1</sub> to x<sub>2</sub></p>
+            <p><b>Gaussian/Normal:</b> P(x) &#8733; exp[-(x-&mu;)<sup>2</sup>/2&sigma;<sup>2</sup>]</p>
+            <p>2 parameters: &sigma; = width, &mu; = location of center</p>
+            <p>Standard Normal: &mu; = 0, &sigma; = 1</p>
+            <p><b>Gamma:</b> f(x) = x<sup>&alpha;-1</sup>exp[-x/&beta;] for x>0 and 0 for x<0</p>
+            <p><b>Exponential:</b> gamma distribution where &alpha;=1 and &beta;=0</p>
+            <p><b>Chi-Square:</b> gamma distribution where &alpha;=n/2 and &beta;=2</p>
+            <br>
+            
+            <h3>Theorems</h3>
+            <p><b>Chebysher Theorem:</b> If &mu; is the mean, &sigma; is the standard deviation, then for every k > 0,
+            P(|x - &mu;| > k&sigma;) &#8804; 1/k<sup>2</sup></p>
+            <p><b>Central Limit Theorem:</b> If x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub> are independent random
+            variables having the same &mu; and &sigma;,</p> 
+            <p>then as the sample size becomes large the distribution of xbar approaches that of a normal distribution</p>
+            <p><b>Bayes' Theorem:</b> describes the probability of an event based on prior knowledge of conditions</p>
+            <p>P(B|A) = P(B) P(A|B) / P(A)</p> 
+            <p>where P(B|A) is the posterior, P(B) is the prior, P(A|B) = P(A&#8745;B)/P(B) 
+                is the likelihood function, and P(A) is the observable</p>
+            <p>If independent then P(A&#8745;B) = P(A) P(B)</p>
+            <br>
+
+            <h3>Extra Mathematical Techniques</h3>
+            <p><b>Bootstrap:</b> resampling a single data set to create a multitude of simulated samples, 
+                which are used to calculate standard errors, 
+                confidence intervals and P-values </p>
+            <p><b>Jackknife:</b> cross-validation (resampling) technique useful for bias and variance estimation
+                obtained by omitting one observation</p>
+            <p><b>Hypothesis Testing:</b></p>
+            <p>standard normal: z = (xbar - &mu;)/(&sigma;/&#8730;n)</p>
+            <p>t distribution: t = (xbar - &mu;)/(s/&#8730;n)</p>
+            <br>
+        <img src="cat_probability.jpeg" height="420" width="499">
+        <br>
+    </center>
+    </body>
+</html>

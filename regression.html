@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Julie's Cheat Sheet for Statistical Methods in P&A</title>
+    </head>
+    <body style="background-color:lavender">
+    <center>
+        <header>
+            <div class="topnav">
+                <a class="active" href="index.html">Home</a> |
+                <a href="probability.html">Probability</a> |
+                <a href="nonparametrics.html">Nonparametrics</a> |
+                <a href="regression.html">Regression</a> |
+                <a href="datasmoothing.html">Data Smoothing</a> |
+                <a href="multivariate.html">Multivariate Analysis</a> |
+                <a href="timeseries.html">Time Series Analysis</a> |
+                <a href="clustering.html">Clustering</a> |
+                <a href="truncated.html">Censored and Truncated Data</a> |
+                <a href="spatial.html">Spatial Point Processes</a>
+            </div>
+        </header>
+        <h1>Regression</h1>
+        <h2>When to Use</h2>
+        <p>when wanting to fit data or test theories; used of parent-causal relationships</p>
+        <br>
+
+        <h2>Key Points</h2>
+        <p><b>Error Models:</b> used to describe the variability in how well the data is described by the parameter</p>
+        <p>can be intrinsic, systematic or measurement errors</p>
+        <p><b>Regression Models:</b> used to describe whether changes in the dependent variable are associated with changes in one or more explanatory variables</p>
+        <p>can be structural (X's are random) or functional (X's are deterministic) models</p>
+        <p><b>Heteroscedastic:</b> scatter of Y varies with X</p>
+        <p><b>Homoscedastic:</b> scatter of Y does not vary with X</p>
+        <p><b>Latent Variables:</b> unobservable variable</p>
+        <p><b>Manifest Variables:</b> measurable or observable variable</p>
+        <h3>Model Validations:</h3>
+        <p><b>Residual Analysis:</b> R<sup>2</sup> = 1 - ratio of errors of squares to total sum of squares; want to be close to 1</p>
+        <p><b>Cross-Validation:</b> a portion of the dataset if removed for regression and is used to evaluate the model's effectiveness</p>
+        <p><b>Bootstrap:</b> use if errors are unknown</p>
+        <br>
+
+        <h2>Least-Squares Linear Regression</h2>
+        <h3>Ordinary Least-Squares:</h3>
+        <p>minimizes the residual sum of squares between the observed response values and the model predictions</p>
+        <p>want to find the slope and intercept that best fits data</p>
+        <p>y<sub>n</sub> = &sum; &beta;<sub>i</sub>x<sub>ni</sub> + &beta;<sub>n</sub></p>
+        <br>
+        
+        <h3>Symmetric Least-Squares Regression:</h3>
+        <p>uncertainity in both x and y</p>
+        <p>needs to be orthogonal</p>
+        <br>
+
+        <h3>Thiel-Sen Median Slope Line:</h3>
+        <p>a type of robust regression</p>
+        <p>the fitted slope is the median of all the slopes between all pairs</p>
+        <br>
+
+        <h3>Quantile Regressions</h3>
+        <p>aims to relate the quantiles while minimizing quantile loss</p>
+        <p>equivalent to an optimization problem</p>
+        <p>captures effects such as outliers, assymetrical, and heteroscedastic errors that are missed by standard tecniques</p>
+        <p>returns three lines: 1st quantile, median, and 3rd quantile</p>
+        <p>if normal distribution, the lines will be equally spaced</p>
+        <p>the lines can have different slopes</p>
+        <br>
+
+        <h3>Maximum Likelihood Estimator:</h3>
+        <p>find distribution that describes the data best by finding what is most likely</p>
+        <p>try different curves and see which has the highest probability of observing the data given the curve</p>
+        <br>
+
+        <h3>Weighted Least-Squares:</h3>
+        <p>not necessarily linear but its least-squares so I am keeping it in this section</p>
+        <p>no assumption that variance is constant, may vary with x-values</p>
+        <p>points are weighted based on their variance: the smaller the variance, the bigger the weight</p>
+        <br>
+
+        <h2>Nonlinear Models</h2>
+        <br>
+        <h3>Poisson Regression:</h3>
+        <p>counted events need to be independent</p>
+        <p>Y variables should be positive integer values</p>
+        <p>E(Y|x) = e<sup>&beta;x</sup></p>
+        <p>model: log(&mu;) = &alpha; + &beta;x</p>
+        <br>
+        <h3>Logistic Regression:</h3>
+        <p>used when there are two possible outcomes</p>
+        <p>uses maximum likelihood estimators</p>
+        <p>used to see if different measurements are better predictors</p>
+        <br>
+
+        <img src="regression_cat.png" width="478" height="331">
+        <br>
+    </center>
+    </body>
+</html>

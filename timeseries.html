@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Julie's Cheat Sheet for Statistical Methods in P&A</title>
+    </head>
+    <body style="background-color:lavender">
+    <center>
+        <header>
+            <div class="topnav">
+                <a class="active" href="index.html">Home</a> |
+                <a href="probability.html">Probability</a> |
+                <a href="nonparametrics.html">Nonparametrics</a> |
+                <a href="regression.html">Regression</a> |
+                <a href="datasmoothing.html">Data Smoothing</a> |
+                <a href="multivariate.html">Multivariate Analysis</a> |
+                <a href="timeseries.html">Time Series Analysis</a> |
+                <a href="clustering.html">Clustering</a> |
+                <a href="truncated.html">Censored and Truncated Data</a> |
+                <a href="spatial.html">Spatial Point Processes</a>
+            </div>
+        </header>
+        <h1>Time Series Analysis</h1>
+        <h2>When to Use</h2>
+        <p>when wanting to find the period of data or predict future values</p>
+        <p>using trends that occur at specific time intervals</p>
+        <br>
+        
+        <h2>Key Points</h2>
+        <p><b>Stationary:</b> time series is invariant to shifts in time and oscillates around a constant mean</p>
+        <p><b>Autocorrelation:</b> measure of how related a time series is to itself at different lags;</p>
+        <p>essentially measuring the memory of a time series</p>
+        <p><b>Lag:</b> a fixed amount of passing time for a previous event; essentially delay</p>
+        <p><b>White Noise:</b> time series that is random with a constant mean and variance but has no autocorrelation</p>
+        <p><b>Lag k Scatter Plot:</b> plot the values of different lags to visually determine trends</p>
+        <p><b>Minimum String Length:</b> way to find period by using the modulus of the phase fold;</p>
+        <p>the period with the minimum distance to connect the phase points is the estimated period</p>
+        <br>
+
+        <h2>Time-Domain Analysis</h2>
+        <h3>Autocorrelation Function:</h3>
+        <p>for <b>evenly</b> spaced data</p>
+        <p>the correlation at different lags are calculated</p>
+        <p>used to detect non-randomness in time series data</p>
+        <p>highest peak (that is not the first one) in correlogram shows significant trend in data</p>
+        <br>
+
+        <h3>Partial Autocorrelation Function:</h3>
+        <p>for <b>evenly</b> spaced data</p>
+        <p>gives autocorrelation at a value of k by removing effects shorter than k</p>
+        <p>helps analyse the relationship between lags</p>
+        <p>done by fitting regressive model that accounts for each lag </p>
+        <p> PACF(i+1) = [ACF(i+1) - ACF(i)<sup>2</sup>]/[1-ACF(i)<sup>2</sup>]</p>
+        <br>
+
+        <h3>Autoregression Model:</h3>
+        <p>for <b>evenly</b> spaced data</p>
+        <p>used to predict future values based on past values with different weights</p>
+        <p>expected mean is 0</p>
+        <p>ACF for lag k is now time-invariant</p>
+        <br>
+
+        <h3>Moving Average Model:</h3>
+        <p>for <b>evenly</b> spaced data</p>
+        <p>used to predict future values based on the errors of past values</p>
+        <br>
+
+        <h3>ARMA: Autoregressive-Moving Average</h3>
+        <p>for <b>evenly</b> spaced data</p>
+        <p>combines the AR and MA models to make future predictions</p>
+        <br>
+
+        <h3>ARIMA: Autoregressive Integrated Moving Average</h3>
+        <p>for <b>evenly</b> spaced data</p>
+        <p>data does not have to be stationary</p>
+        <p>the data is transformed to get the linear average change by taking x<sub>t+1</sub> - x<sub>t</sub></p>
+        <p>3 parameters: autoregressive order p, order for moving average q, difference for change in mean q</p>
+        <br>
+
+        <h3>Discrete Correlation Function:</h3>
+        <p>for <b>unevenly</b> spaced data</p>
+        <p>computes ACF without having to account for interpolating the unevenly spaced data onto a regular grid</p>
+        <p>can treat autocorrelation and cross-correlation</p>
+        <br>
+        
+        <h3>Ljung Box Statistic:</h3>
+        <p>H<sub>o</sub>: time series random or white noise</p>
+        <p>H<sub>1</sub>: time series has a serial correlation</p>
+        <p>Q(m) = n(n+2)&#8721;(r<sub>j</sub><sup>2</sup>/n-j) from 1 to m where m is the different lags</p>
+        <br>
+
+        <h2>Spectral Analysis</h2>
+        <h3>Power Spectral Density:</h3>
+        <p>for <b>evenly</b> spaced <b>stationary</b> data</p>
+        <p>the Fourier Transform of the autocorrelation function</p>
+        <br>
+
+        <h3>Periodogram:</h3>
+        <p>for <b>evenly</b> spaced data</p>
+        <p>identifies period of a cyclical time series</p>
+        <p>uses the classic finite fourier series: sum of cosines and sines</p>
+        <img src="periodogram.png" width="335" height="40">
+        <br>
+        <br>
+
+        <h3>Lomg-Scargle Periodogram:</h3>
+        <p>for <b>unevenly</b> spaced data</p>
+        <img src="lombscargle.png" width="335" height="40">
+        <p>the different n's have different powers</p>
+        <br>
+
+
+        <img src="time series cat.jpeg" width="400" height="240">
+        <br>
+
+
+    </center>
+    </body>
+</html>
